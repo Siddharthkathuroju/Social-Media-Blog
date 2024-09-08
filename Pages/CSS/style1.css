@@ -1,0 +1,149 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400&display=swap');
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #177a63; 
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 1rem 3rem; /* Adjust padding if necessary */
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000; /* Ensures navbar stays above other content */
+}
+
+.navbar-logo a {
+    color: rgb(4, 1, 1);
+    text-decoration: none;
+    font-size: 1rem;
+}
+button.post-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 400;
+    color: white;
+    background-color: #007bff; /* Button background color */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button.post-button:hover {
+    background-color: #0056b3; /* Darker background on hover */
+}
+
+.navbar-links {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    flex: 2;
+}
+
+.navbar-links li {
+    margin-left: 30px;
+}
+
+.navbar-links a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+.navbar-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.navbar-toggle span {
+    height: 3px;
+    width: 25px;
+    background-color: white;
+    margin: 4px;
+    border-radius: 5px;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Center vertically */
+    height: 100vh;
+    padding-top: 4rem; /* Adjust this value based on navbar height */
+    box-sizing: border-box;
+}
+
+.content {
+    text-align: center;
+    color: aliceblue;
+    flex: 1; /* Allows the content to grow and fill available space */
+}
+
+.content-blogimg {
+    display: flex;
+    align-items: center; /* Center the image vertically */
+    justify-content: center;
+    border: 10px solid white; /* Thick white border around the image */
+    animation: slide-up 1s ease-out forwards;
+    margin-right: 25px;
+}
+
+.content-blogimg img {
+    max-width: 100%; /* Ensures image fits within container */
+    height: auto; /* Maintains aspect ratio */
+    display: block; /* Removes bottom space caused by inline display */
+    animation: slide-up 1s ease-out forwards;
+}
+
+h1.slide-up {
+    font-size: 25px; /* Set font size */
+    font-family: 'Oswald', sans-serif; /* Use Oswald font */
+    font-weight: 400; /* Regular weight */
+    opacity: 0;
+    transform: translateY(100%) perspective(1000px) rotateX(10deg); /* Perspective and rotation for 3D effect */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3), /* Shadow for depth */
+                 -1px -1px 5px rgba(255, 255, 255, 0.3);
+    animation: slide-up 1s ease-out forwards;
+}
+
+@keyframes slide-up {
+    0% {
+        opacity: 0;
+        transform: translateY(100%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar-links {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .navbar-links.active {
+        display: flex;
+    }
+
+    .navbar-toggle {
+        display: flex;
+    }
+
+    .navbar-links li {
+        margin: 10px 0;
+    }
+}
